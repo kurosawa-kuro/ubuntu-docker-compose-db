@@ -12,12 +12,12 @@ sudo apt-get update
 # Dockerエンジンをインストール
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
-# ユーザをdockerグループに追加 (これによりsudoなしでdockerコマンドを使用できるようになります)
-sudo usermod -aG docker $USER
-
 # Dockerを起動し、有効化
 sudo systemctl enable docker
 sudo systemctl start docker
+
+# ユーザをdockerグループに追加 (これによりsudoなしでdockerコマンドを使用できるようになります)
+sudo usermod -aG docker $USER
 
 # Docker Composeのインストール
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
